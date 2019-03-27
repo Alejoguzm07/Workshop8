@@ -42,4 +42,26 @@ public class UserServices implements IUserServices{
     public User get(String name) {
         return userRepository.getUserByUserName(name);
     }
+
+    @Override
+    public User update(User user) {
+        if(null == user.getId())
+            throw new RuntimeException("Id invalid");
+        else if(userRepository.find(user.getId()) == null)
+            throw new RuntimeException("The user does not exists");
+        else
+            userRepository.update(user);
+        return user;
+    }
+
+    @Override
+    public UUID delete(UUID id) {
+        if(null == id)
+            throw new RuntimeException("Id invalid");
+        else if(userRepository.find(id) == null)
+            throw new RuntimeException("The user does not exists");
+        else
+            userRepository.delete(userRepository.find(id));
+        return id;
+    }
 }

@@ -23,12 +23,11 @@ public class CarMemoryRepository implements ICarRepository{
     }
 
     @Override
-    public Car getCarBylicencePlate(String licencePlate) {
-        return CarMemoryRepository.getContainer()
+    public List<Car> getCarsByBrand(String brand) {
+        return (CarMemoryRepository.getContainer()
                 .stream()
-                .filter(c -> licencePlate.equals(c.getlicencePlate()))
-                .findFirst()
-                .get();
+                .filter(c -> brand.equals(c.getbrand()))
+                .collect(toList()));
     }
 
     @Override
