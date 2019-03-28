@@ -11,7 +11,7 @@ public interface IUserServices {
     List<User> list();
     User create(User user);
     User get(UUID id);
-    User get(String name);
+    List<User> get(String name);
     User update(User user);
     UUID delete(UUID id);
 }

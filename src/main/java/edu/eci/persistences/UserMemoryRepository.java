@@ -24,12 +24,11 @@ public class UserMemoryRepository implements IUserRepository{
     }
 
     @Override
-    public User getUserByUserName(String userName) {
+    public List<User> getUsersByUserName(String userName) {
         return UserMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> userName.equals(u.getName()))
-                .findFirst()
-                .get();
+                .collect(toList());
     }
 
     @Override

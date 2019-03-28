@@ -27,7 +27,7 @@ public class Car implements Serializable {
         return brand;
     }
 
-    public void setId(String brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 }
